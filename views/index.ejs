@@ -1,0 +1,39 @@
+<%- include('./partials/header.ejs') %>
+
+
+<div class="py-5 d-flex align-items-center flex-column text-center">
+    <div class="col-lg-6 col-md-8 mx-auto">
+    <h1>Activity</h1>
+    
+    <% if (!user) { %>
+
+    <p class="lead text-muted"> 
+        This site helps you to log your daily activities and display the data to you. </br>
+        Please register and login to begin logging!</p>
+
+        <% }; %>
+
+    <div class="p-3 mx-auto">
+        <% if (activitiesToday && activitiesToday.length > 0) { %>
+            <ul>
+                <% activitiesToday.forEach((item) => { %>
+                    <p>Average mood today: <%= item.mood %></p>
+                <% }); %>
+            </ul>
+        <% } %>
+    </div>
+
+    <div class="p-3 mx-auto">
+        <% if (activitiesYesterday && activitiesYesterday.length > 0) { %>
+            <ul>
+                <% activitiesYesterday.forEach((item) => { %>
+                    <p>Average mood yesterday: <%= item.mood %></p>
+                <% }); %>
+            </ul>
+        <% } %>
+    </div>
+    </div>
+</div>
+
+<%- include('./partials/footer.ejs') %>
+

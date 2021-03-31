@@ -1,0 +1,52 @@
+<%- include('./partials/header.ejs') %>
+
+<h1>Summary</h1>
+<h2>Weekly summary</h2>
+<form method='POST' action='/behavior/summary/week'>
+        <label for="week">Choose a week:</label>
+
+        <input type="week" name="week" id="summary-week">
+        <input type='submit' value='Select' />
+</form>
+<h2>Last Week</h2>
+<% if (weeklyActivities && weeklyActivities.length > 0) { %>
+        <ul>
+                <% weeklyActivities.forEach((item) => { %>
+                        Sleep Duration: <%= item.sleep_duration %><br>
+                        Exercise Duration: <%= item.exercise_duration %><br>
+                        Study Duration: <%= item.study_duration %><br>
+                        Sleep Quality: <%= item.sleep_quality %><br>
+                        General Mood: <%= item.mood %>
+                <% }); %>
+        </ul>
+<% } else { %>
+        No data
+<% } %>
+
+
+
+
+<h2>Monthly summary</h2>
+<form method='POST' action='/behavior/summary/month'>
+
+        <label for="week">Choose a month:</label>
+
+        <input type="month" name="month" id="summary-month" >
+        <input type='submit' value='Select' />
+</form>
+<h2>Last Month</h2>
+<% if (monthlyActivities && monthlyActivities.length > 0) { %>
+        <ul>
+                <% monthlyActivities.forEach((item) => { %>
+                        Sleep Duration: <%= item.sleep_duration %><br>
+                        Exercise Duration: <%= item.exercise_duration %><br>
+                        Study Duration: <%= item.study_duration %><br>
+                        Sleep Quality: <%= item.sleep_quality %><br>
+                        General Mood: <%= item.mood %>
+                <% }); %>
+        </ul>
+<% } else { %>
+        No data
+<% } %>
+
+<%- include('./partials/footer.ejs') %>

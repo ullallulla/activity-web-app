@@ -1,0 +1,12 @@
+<% if (data.errors) { %>
+
+<div class="my-5 py-1 bg-danger text-white col-lg-6 col-md-8 mx-auto">
+    <ul>
+        <% Object.keys(data.errors).forEach((attribute) => { %>
+            <% Object.values(data.errors[attribute]).forEach((err) => { %>
+                <p><%= err %></p>
+            <% }); %>
+        <% }); %>
+    </ul>
+</div>
+<% } %>
