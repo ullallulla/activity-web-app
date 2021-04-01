@@ -12,7 +12,6 @@ Database configuration
 ------------------------
 
 Head to folder "config" and open "config.js".
-Setup your hostname, database, user, password and port for your ElephantSQL.
 Create .env file to the root of the project and enter your database variables
 
 ```
@@ -25,7 +24,7 @@ PGPORT=your-port
 
 
 
-Creating tables
+Creating tables POSTGRESQL
 ---------------
 ```
 CREATE TABLE users (
