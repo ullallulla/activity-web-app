@@ -7,9 +7,9 @@ const getActivityListToday = async(user) => {
 
     if (user){
         const today = await executeQuery("SELECT AVG(mood)::numeric(100,2) as mood FROM activities WHERE DATE_PART('year', reported_on) = DATE_PART('year', NOW()) AND DATE_PART('month', reported_on) = DATE_PART('month', NOW()) AND DATE_PART('day', reported_on) = DATE_PART('day', NOW()) AND (user_id = $1)", user.id);
-        console.log('today',today.rows)
+        console.log('today',today.rows[0])
 
-        if(!today)
+        if(!today.rows[0].mood)
             return []
         return today.rows;
     }
@@ -45,9 +45,15 @@ const getActivityListYesterday = async(user) => {
 
 
 }
-const addMorningActivity = async({request, response, session}) => {
+const addMorningActivity = async({request, render, response, session}) => {
     const body = request.body();
     const params = await body.value;
+
+    const data = {
+        errors: null,
+
+    };
+    const errors = null
 
     const sleepDuration = params.get('sleepDuration');
     const sleepQuality = params.get('sleepQuality');
@@ -55,9 +61,18 @@ const addMorningActivity = async({request, response, session}) => {
 
     const user = await session.get('user')
 
-
+    /* if (mood && sleepDuration && sleepQuality){
+        await executeQuery("INSERT INTO activities (reported_on, sleep_duration, sleep_quality, mood, user_id) VALUES (NOW(), $1, $2, $3, $4)", sleepDuration, sleepQuality, mood, user.id);
+        response.redirect('/');
+    }
+    else {
+        errors["missingArguments"] = ({missingArguments: "missing arguments"})
+        data.errors = errors
+        render("reporting.ejs", {data})
+    } */
     await executeQuery("INSERT INTO activities (reported_on, sleep_duration, sleep_quality, mood, user_id) VALUES (NOW(), $1, $2, $3, $4)", sleepDuration, sleepQuality, mood, user.id);
     response.redirect('/');
+
 }
 
 const addEveningActivity = async({request, response, session}) => {
@@ -91,7 +106,7 @@ const postSummaryWeek = async(user, week, year) => {
 
     if (week){
         const res = await executeQuery("SELECT AVG(sleep_quality)::numeric(100,2) as sleep_quality, AVG(mood)::numeric(100,2) as mood, AVG(sleep_duration)::numeric(100,2) as sleep_duration, AVG(exercise_duration)::numeric(100,2) as exercise_duration, AVG(study_duration)::numeric(100,2) as study_duration FROM activities WHERE DATE_PART('week', reported_on) = $1 AND DATE_PART('year', reported_on) = $2 AND user_id = $3;", week, year, user.id)
-        return res.rows
+        return res.rows[0]
     }
 
 
@@ -111,7 +126,7 @@ const postSummaryMonth = async(user, month, year) => {
     if (month) {
         const res = await executeQuery("SELECT AVG(sleep_quality)::numeric(100,2) as sleep_quality, AVG(mood)::numeric(100,2) as mood, AVG(sleep_duration)::numeric(100,2) as sleep_duration, AVG(exercise_duration)::numeric(100,2) as exercise_duration, AVG(study_duration)::numeric(100,2) as study_duration FROM activities WHERE DATE_PART('month', reported_on) = $1 AND DATE_PART('year', reported_on) = $2 AND user_id = $3;", month, year, user.id)
         console.log(res.rows)
-        return res.rows
+        return res.rows[0]
     }
 
 }

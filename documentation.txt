@@ -11,6 +11,12 @@ Setup your hostname, database, user, password and port for your ElephantSQL.
 Creating tables
 ---------------
 
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(320) NOT NULL,
+  password CHAR(60) NOT NULL
+);
+
 CREATE TABLE activities (
   id SERIAL PRIMARY KEY,
   reported_on TIMESTAMP WITH TIME ZONE,
@@ -23,12 +29,8 @@ CREATE TABLE activities (
   user_id INTEGER REFERENCES users(id)
 );
 
-CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  email VARCHAR(320) NOT NULL,
-  password CHAR(60) NOT NULL
-);
+
 
 Running the app
 ----------------
-run deno with  --allow-read --allow-net --allow-env --unstable
+run deno with  --allow-read --allow-net --allow-env --unstable app.js

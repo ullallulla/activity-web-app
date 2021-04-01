@@ -11,7 +11,6 @@ const showRegistrationForm = async({render, session}) => {
 
 const showLoginForm = async({render, session}) => {
     const user = await session.get('user')
-
     render('login.ejs', {data: await userService.getLogin(), user});
 }
 

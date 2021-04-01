@@ -1,119 +1,139 @@
 <%- include('./partials/header.ejs') %>
 
-<h1>Reporting</h1>
+    <div class="py-4 text-center container">
 
-<h2>Add a morning report</h2>
-<form method='POST' action='/behavior/reporting/morning'>
+        <h1>Reporting</h1>
 
-    <div class="form-group col-sm-2">
-        <label for="sleepDuration" ><strong>Sleep duration:</strong></label>
-        <input type='float' name='sleepDuration' id="sleepDuration" class="form-control"/>
+
+        <div class="row justify-content-md-center">
+            <div class="col justify-content-md-center">
+
+                <h2 class="my-4">Add a morning report</h2>
+                <form method='POST' action='/behavior/reporting/morning'>
+
+                    <div class="form-group row-sm-2">
+                        <label for="sleepDuration"><strong>Sleep duration:</strong></label>
+                        <input type='float' name='sleepDuration' id="sleepDuration" class="form-control" />
+                    </div>
+                    <div class="form-group row-sm-6">
+                        <label><strong>Sleep quality:</strong></label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label px-2" for="sleepQuality1">Very Poor (1) </label>
+                            <input type='radio' name='sleepQuality' id="sleepQuality1" value="1"
+                                class="form-check-input" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type='radio' name='sleepQuality' id="sleepQuality2" value="2"
+                                class="form-check-input" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type='radio' name='sleepQuality' id="sleepQuality3" value="3"
+                                class="form-check-input" />
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input type='radio' name='sleepQuality' id="sleepQuality4" value="4"
+                                class="form-check-input" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type='radio' name='sleepQuality' id="sleepQuality5" value="5"
+                                class="form-check-input" />
+                            <label class="form-check-label px-2" for="sleepQuality5">Excellent (5) </label>
+                        </div>
+
+                    </div>
+                    <div class="form-group row-sm-6">
+                        <label><strong>General mood:</strong></label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label px-2" for="mood1">Very Poor (1) </label>
+                            <input type='radio' name='mood' id="mood1" value="1" class="form-check-input" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type='radio' name='mood' id="mood2" value="2" class="form-check-input" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type='radio' name='mood' id="mood3" value="3" class="form-check-input" />
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input type='radio' name='mood' id="mood4" value="4" class="form-check-input" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type='radio' name='mood' id="mood5" value="5" class="form-check-input" />
+                            <label class="form-check-label px-2" for="mood5">Excellent (5) </label>
+                        </div>
+
+                    </div>
+
+                    <input type='submit' value='Submit report!' class="btn btn-primary" />
+                </form>
+            </div>
+
+            <div class="col justify-content-md-center">
+
+                <h2 class="my-4">Add an evening report</h2>
+                <form method='POST' action='/behavior/reporting/evening'>
+
+                    <div class="form-group row-sm-2">
+                        <label for="exerciseDuration"><strong>Time spent on sports and exercise:</strong></label>
+                        <input type='float' name='exerciseDuration' class="form-control" />
+                    </div>
+                    <div class="form-group row-sm-2">
+                        <label for="studyDuration"><strong>Time spent studying:</strong></label>
+                        <input type='float' name='studyDuration' class="form-control" />
+                    </div>
+
+                    <div class="form-group row-sm-6">
+                        <label><strong>Regularity and quality of eating:</strong></label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label px-2" for="eating1">Very Poor (1) </label>
+                            <input type='radio' name='eatingHabits' id="eating1" value="1" class="form-check-input" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type='radio' name='eatingHabits' id="eating2" value="2" class="form-check-input" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type='radio' name='eatingHabits' id="eating3" value="3" class="form-check-input" />
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input type='radio' name='eatingHabits' id="eating4" value="4" class="form-check-input" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type='radio' name='eatingHabits' id="eating5" value="5" class="form-check-input" />
+                            <label class="form-check-label px-2" for="eating5">Excellent (5) </label>
+                        </div>
+
+                    </div>
+                    <div class="form-group row-sm-6">
+                        <label><strong>General mood:</strong></label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label px-2" for="mood1">Very Poor (1) </label>
+                            <input type='radio' name='mood' id="mood1" value="1" class="form-check-input" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type='radio' name='mood' id="mood2" value="2" class="form-check-input" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type='radio' name='mood' id="mood3" value="3" class="form-check-input" />
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input type='radio' name='mood' id="mood4" value="4" class="form-check-input" />
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type='radio' name='mood' id="mood5" value="5" class="form-check-input" />
+                            <label class="form-check-label px-2" for="mood5">Excellent (5) </label>
+                        </div>
+
+                    </div>
+                    <input type='submit' value='Submit report!' class="btn btn-primary" />
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="form-group col-sm-6">
-        <label><strong>Sleep quality:</strong></label>
-        <br><div class="form-check form-check-inline">
-            <label class="form-check-label" for="sleepQuality1">Very Poor (1) </label>
-            <input type='radio' name='sleepQuality' id="sleepQuality1" value="1" class="form-check-input"/>
-        </div>
-        <div class="form-check form-check-inline">
-            <input type='radio' name='sleepQuality' id="sleepQuality2" value="2" class="form-check-input"/>
-        </div>
-        <div class="form-check form-check-inline">
-            <input type='radio' name='sleepQuality' id="sleepQuality3" value="3" class="form-check-input"/>
-        </div>
-
-        <div class="form-check form-check-inline">
-            <input type='radio' name='sleepQuality' id="sleepQuality4" value="4" class="form-check-input"/>
-        </div>
-        <div class="form-check form-check-inline">
-            <input type='radio' name='sleepQuality' id="sleepQuality5" value="5" class="form-check-input"/>
-            <label class="form-check-label" for="sleepQuality5">Excellent (5) </label>
-        </div>
-
-    </div>
-    <div class="form-group col-sm-6">
-        <label><strong>General mood:</strong></label>
-        <br><div class="form-check form-check-inline">
-            <label class="form-check-label" for="mood1">Very Poor (1) </label>
-            <input type='radio' name='mood' id="mood1" value="1" class="form-check-input"/>
-        </div>
-        <div class="form-check form-check-inline">
-            <input type='radio' name='mood' id="mood2" value="2" class="form-check-input"/>
-        </div>
-        <div class="form-check form-check-inline">
-            <input type='radio' name='mood' id="mood3" value="3" class="form-check-input"/>
-        </div>
-
-        <div class="form-check form-check-inline">
-            <input type='radio' name='mood' id="mood4" value="4" class="form-check-input"/>
-        </div>
-        <div class="form-check form-check-inline">
-            <input type='radio' name='mood' id="mood5" value="5" class="form-check-input"/>
-            <label class="form-check-label" for="mood5">Excellent (5) </label>
-        </div>
-
-    </div>
-
-    <input type='submit' value='Submit report!' class="btn btn-primary" />
-</form>
-
-<h2>Add an evening report</h2>
-<form method='POST' action='/behavior/reporting/evening' >
-
-    <div class="form-group col-sm-2">
-        <label for="exerciseDuration"><strong>Time spent on sports and exercise:</strong></label>
-        <input type='float' name='exerciseDuration' class="form-control"/>
-    </div>
-    <div class="form-group col-sm-2">
-        <label for="studyDuration"><strong>Time spent studying:</strong></label>
-        <input type='float' name='studyDuration' class="form-control"/>
-    </div>
-
-    <div class="form-group col-sm-6">
-        <label><strong>Regularity and quality of eating:</strong></label>
-        <br><div class="form-check form-check-inline">
-            <label class="form-check-label" for="eating1">Very Poor (1) </label>
-            <input type='radio' name='eatingHabits' id="eating1" value="1" class="form-check-input"/>
-        </div>
-        <div class="form-check form-check-inline">
-            <input type='radio' name='eatingHabits' id="eating2" value="2" class="form-check-input"/>
-        </div>
-        <div class="form-check form-check-inline">
-            <input type='radio' name='eatingHabits' id="eating3" value="3" class="form-check-input"/>
-        </div>
-
-        <div class="form-check form-check-inline">
-            <input type='radio' name='eatingHabits' id="eating4" value="4" class="form-check-input"/>
-        </div>
-        <div class="form-check form-check-inline">
-            <input type='radio' name='eatingHabits' id="eating5" value="5" class="form-check-input"/>
-            <label class="form-check-label" for="eating5">Excellent (5) </label>
-        </div>
-
-    </div>
-    <div class="form-group col-sm-6">
-        <label><strong>General mood:</strong></label>
-        <br><div class="form-check form-check-inline">
-            <label class="form-check-label" for="mood1">Very Poor (1) </label>
-            <input type='radio' name='mood' id="mood1" value="1" class="form-check-input"/>
-        </div>
-        <div class="form-check form-check-inline">
-            <input type='radio' name='mood' id="mood2" value="2" class="form-check-input"/>
-        </div>
-        <div class="form-check form-check-inline">
-            <input type='radio' name='mood' id="mood3" value="3" class="form-check-input"/>
-        </div>
-
-        <div class="form-check form-check-inline">
-            <input type='radio' name='mood' id="mood4" value="4" class="form-check-input"/>
-        </div>
-        <div class="form-check form-check-inline">
-            <input type='radio' name='mood' id="mood5" value="5" class="form-check-input"/>
-            <label class="form-check-label" for="mood5">Excellent (5) </label>
-        </div>
-
-    </div>
-    <input type='submit' value='Submit report!' class="btn btn-primary" />
-</form>
-
-<%- include('./partials/footer.ejs') %>
+    <%- include('./partials/footer.ejs') %>
