@@ -1,25 +1,40 @@
-# Activity web app project for Aalto University's Web Development Project course
+## Activity web app project for Aalto University's Web Development Project course
 
-## https://wsd-website-project.herokuapp.com/
+## Usage
 
+Use this link
 
+### https://wsd-website-project.herokuapp.com/
+
+Or use locally
 
 Database configuration
 ------------------------
 
-Head to file "config" and open "config.js".
+Head to folder "config" and open "config.js".
 Setup your hostname, database, user, password and port for your ElephantSQL.
+Create .env file to the root of the project and enter your database variables
+
+```
+PGHOST=your-host
+PGDATABASE=your-db
+PGUSER=your-user
+PGPASSWORD=your-password
+PGPORT=your-port
+```
+
 
 
 Creating tables
 ---------------
-
+```
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   email VARCHAR(320) NOT NULL,
   password CHAR(60) NOT NULL
 );
-
+```
+```
 CREATE TABLE activities (
   id SERIAL PRIMARY KEY,
   reported_on TIMESTAMP WITH TIME ZONE,
@@ -31,9 +46,11 @@ CREATE TABLE activities (
   mood INTEGER NOT NULL,
   user_id INTEGER REFERENCES users(id)
 );
-
+```
 
 
 Running the app
 ----------------
+```
 run deno with  --allow-read --allow-net --allow-env --unstable app.js
+```
