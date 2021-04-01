@@ -106,7 +106,7 @@ const postSummaryWeek = async(user, week, year) => {
 
     if (week){
         const res = await executeQuery("SELECT AVG(sleep_quality)::numeric(100,2) as sleep_quality, AVG(mood)::numeric(100,2) as mood, AVG(sleep_duration)::numeric(100,2) as sleep_duration, AVG(exercise_duration)::numeric(100,2) as exercise_duration, AVG(study_duration)::numeric(100,2) as study_duration FROM activities WHERE DATE_PART('week', reported_on) = $1 AND DATE_PART('year', reported_on) = $2 AND user_id = $3;", week, year, user.id)
-        return res.rows[0]
+        return res.rows
     }
 
 
@@ -126,7 +126,7 @@ const postSummaryMonth = async(user, month, year) => {
     if (month) {
         const res = await executeQuery("SELECT AVG(sleep_quality)::numeric(100,2) as sleep_quality, AVG(mood)::numeric(100,2) as mood, AVG(sleep_duration)::numeric(100,2) as sleep_duration, AVG(exercise_duration)::numeric(100,2) as exercise_duration, AVG(study_duration)::numeric(100,2) as study_duration FROM activities WHERE DATE_PART('month', reported_on) = $1 AND DATE_PART('year', reported_on) = $2 AND user_id = $3;", month, year, user.id)
         console.log(res.rows)
-        return res.rows[0]
+        return res.rows
     }
 
 }
